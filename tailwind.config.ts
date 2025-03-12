@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,12 +19,32 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'pixel': ['"Press Start 2P"', 'cursive'],
+				'pixel-mono': ['"VT323"', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				pixel: {
+					black: '#000000',
+					white: '#FFFFFF',
+					gray: '#808080',
+					'light-gray': '#C0C0C0',
+					red: '#FF0000',
+					'dark-red': '#800000',
+					blue: '#0000FF',
+					'light-blue': '#00FFFF',
+					'dark-blue': '#000080',
+					green: '#00FF00',
+					'dark-green': '#008000',
+					purple: '#8000FF',
+					yellow: '#FFFF00',
+					orange: '#FFA500',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -66,7 +87,8 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				none: '0px',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +106,35 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pixel-fade-in': {
+					'0%': { opacity: '0' },
+					'10%': { opacity: '0.1' },
+					'20%': { opacity: '0.2' },
+					'30%': { opacity: '0.3' },
+					'40%': { opacity: '0.4' },
+					'50%': { opacity: '0.5' },
+					'60%': { opacity: '0.6' },
+					'70%': { opacity: '0.7' },
+					'80%': { opacity: '0.8' },
+					'90%': { opacity: '0.9' },
+					'100%': { opacity: '1' }
+				},
+				'pixel-blink': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0' }
+				},
+				'pixel-bounce': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-4px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pixel-fade-in': 'pixel-fade-in 0.5s steps(10) forwards',
+				'pixel-blink': 'pixel-blink 1s steps(2) infinite',
+				'pixel-bounce': 'pixel-bounce 0.5s steps(2) infinite'
 			}
 		}
 	},
